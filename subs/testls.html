@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+            if (typeof(localStorage)!=='undefined') {
+                document.write('Local Store Available\n\r')
+            }
+            else {
+                document.write('Local Store NOT Available\n\r')
+            }
+            
+            if (typeof(sessionStorage)!=='undefined') {
+                document.write('Session Store Available\n\r')
+            }
+            else {
+                document.write('Session Store NOT Available\n\r')
+            }
+            
+            var seconds = new Date().getTime();
+            //document.write(seconds);
+            localStorage.srchts=seconds;
+            
+            
+            
+        </script>
+    </body>
+</html>

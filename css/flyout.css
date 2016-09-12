@@ -1,0 +1,35 @@
+/* ================================================================ 
+This copyright notice must be untouched at all times.
+ 
+The original version of this stylesheet and the associated (x)html
+is available at http://www.cssplay.co.uk/menus/latest-flyout.html
+Copyright (c) 2005-2009 Stu Nicholls. All rights reserved.
+This stylesheet and the associated (x)html may be modified in any 
+way to fit your requirements.
+=================================================================== */
+#menu {height:132px; width:132px; position:relative;}
+ 
+#menu ul {margin:0; padding:0; list-style:none; white-space:nowrap; text-align:left; padding:1px 1px 0 1px; background:#fff;}
+ 
+#menu li {margin:0; padding:0; list-style:none;}
+#menu li {display:inline-block; display:inline;}
+#menu ul ul {position:absolute; left:-9999px;}
+#menu ul#toplevel {position:absolute; left:0; top:0;}
+ 
+#menu a {display:block; font:normal 11px verdana,arial,sans-serif; color:#000; line-height:22px; text-decoration:none;padding:0 20px 0 10px;} 
+ 
+#menu ul li:hover > ul {left:100%; margin-top:-23px; margin-left:-1px;}
+ 
+#menu a:hover ul,
+#menu a:hover a:hover ul, 
+#menu a:hover a:hover a:hover ul {left:100%;}
+#menu a:hover ul ul, 
+#menu a:hover a:hover ul ul {left:-9999px;}
+ 
+#menu li a:hover {background:#09c; color:#fff;} 
+#menu li:hover > a {background:#09c; color:#fff;}
+#menu li a.fly {background: url(images/arrow.gif_next) no-repeat right top;}
+#menu li a.fly:hover {background:#09c url(images/arrow_next.gif) no-repeat right top;} 
+#menu li:hover > a.fly {background:#09c url(images/arrow_next.gif) no-repeat right top;}
+ 
+#menu table {position:absolute; left:99%; height:0; width:0; border-collapse:collapse; margin-top:-7px; margin-left:-1px;}

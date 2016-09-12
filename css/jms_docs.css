@@ -1,0 +1,104 @@
+#menu 
+{
+	padding:0;
+	margin:5px;
+	position:absolute;
+}
+
+#menu li
+{   
+	list-style-type: none;
+	font-size: 93%;
+	display:block;
+}
+
+#menu li ul li
+{   
+	margin-left:10px;
+	list-style-type: none;
+	font-size: 85%;
+}
+
+#menu li ul li ul li
+{   
+	margin-left:20px;
+	list-style-type: none;
+	font-size: 85%;
+}
+
+#menu a, #menu a:visited
+{
+ 	width:10em;
+}
+
+div.htitleedit
+{
+	width:10em;
+}
+
+td
+{
+ 	padding: 2px 2px 2px 2px;
+}
+
+a img
+{
+ 	margin-left:5px;
+}
+
+h2
+{
+	font-size: 123.1%;
+	font-weight: bold;
+}
+
+h3
+{
+	font-size: 108%;
+	font-weight: bold;
+}
+
+h4
+{
+	font-size: 100%;
+	font-weight: bold;
+}
+
+#hiddendiv
+{
+	visibility: hidden;
+}
+
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-editcode span.yui-toolbar-icon
+{
+    background-image: url( assets/html_editor.gif );
+    background-position: 0 1px;
+    left: 5px;
+    }
+
+.yui-skin-sam .yui-toolbar-container .yui-button-editcode-selected span.yui-toolbar-icon
+{
+    background-image: url( assets/html_editor.gif );
+    background-position: 0 1px;
+    left: 5px;
+}
+
+.editor-hidden
+{
+    visibility: hidden;
+    top: -9999px;
+    left: -9999px;
+    position: absolute;
+}
+
+textarea
+{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.yui-toolbar-group-insertitem
+{
+    width: auto;
+}
+

@@ -1,0 +1,151 @@
+<?php
+// We need to make sure the correct timezone is set, or some PHP installations will complain
+if (function_exists('date_default_timezone_set'))
+{
+	// * MAKE SURE YOU SET THIS TO THE CORRECT TIMEZONE! *
+	// List of valid timezones is here: http://us3.php.net/manual/en/timezones.php
+	date_default_timezone_set('America/Tijuana');
+}
+
+// Include path for the QuickBooks library
+ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . '../');
+
+// I always program in E_STRICT error mode... 
+error_reporting(E_ALL|E_STRICT);
+
+// Require the framework
+require_once 'QuickBooks.php';
+
+// set this to log into QBWC
+$user = 'xxxxx';
+$pass = 'xxxxx';
+
+// Map QuickBooks actions to handler functions
+$map = array(
+			 QUICKBOOKS_ADD_CUSTOMER => array('_customer_add_request', '_customer_add_response'),
+			 QUICKBOOKS_QUERY_ITEM =>	array('_itemquery_request', '_itemquery_response'));
+
+// This is entirely optional, use it to trigger actions when an error is returned by QuickBooks
+$errmap = array('*' => '_quickbooks_generic_error');
+
+// An array of callback hooks
+$hooks = array(
+	// There are many hooks defined which allow you to run your own functions/methods when certain events happen within the framework
+	// QUICKBOOKS_HANDLERS_HOOK_LOGINSUCCESS => '_quickbooks_hook_loginsuccess', 	// Run this function whenever a successful login occurs
+	);
+
+// Logging level
+//$log_level = QUICKBOOKS_LOG_NORMAL;
+//$log_level = QUICKBOOKS_LOG_VERBOSE;
+//$log_level = QUICKBOOKS_LOG_DEBUG;				
+$log_level = QUICKBOOKS_LOG_DEVELOP;		// Use this level until you're sure everything works!!!
+
+// What SOAP server you're using 
+$soapserver = QUICKBOOKS_SOAPSERVER_BUILTIN;		// A pure-PHP SOAP server (no PHP ext/soap extension required, also makes debugging easier)
+
+$soap_options = array(		// See http://www.php.net/soap
+	);
+
+$handler_options = array(
+	//'authenticate_dsn' => ' *** YOU DO NOT NEED TO PROVIDE THIS CONFIGURATION VARIABLE TO USE THE DEFAULT AUTHENTICATION METHOD FOR THE DRIVER YOU'RE USING (I.E.: MYSQL) *** '
+	//'authenticate_dsn' => 'ldapv3://ldap.example.com:389/ou=People,dc=example,dc=com',
+	//'authenticate_dsn' => 'mysql://user:pass@localhost/database?quickbooks_user',  
+	//'authenticate_dsn' => 'postgresql://user:pass@localhost/database?quickbooks_user', 
+	//'authenticate_dsn' => 'function://your_function_name_here', 
+	);		// See the comments in the QuickBooks/Server/Handlers.php file
+
+$driver_options = array(		// See the comments in the QuickBooks/Driver/<YOUR DRIVER HERE>.php file ( i.e. 'Mysql.php', etc. )
+	//'max_log_history' => 1024,	// Limit the number of quickbooks_log entries to 1024
+	//'max_queue_history' => 64, 	// Limit the number of *successfully processed* quickbooks_queue entries to 64
+	);
+
+$callback_options = array();
+
+// Set this to log into SOAP DB
+
+$dsn = 'mssql://xxxxx:xxxxXXXX@XXXX-XXXX/XX_XXXX'; //Connect to MS SQL Server database
+
+if (!QuickBooks_Utilities::initialized($dsn))
+{
+	// Initialize creates the neccessary database schema for queueing up requests and logging
+	QuickBooks_Utilities::initialize($dsn);
+	
+	// This creates a username and password which is used by the Web Connector to authenticate
+	QuickBooks_Utilities::createUser($dsn, $user, $pass);
+}
+
+// Create a new server and tell it to handle the requests
+// __construct($dsn_or_conn, $map, $errmap = array(), $hooks = array(), $log_level = QUICKBOOKS_LOG_NORMAL, $soap = QUICKBOOKS_SOAPSERVER_PHP, $wsdl = QUICKBOOKS_WSDL, $soap_options = array(), $handler_options = array(), $driver_options = array(), $callback_options = array()
+$Server = new QuickBooks_Server($dsn, $map, $errmap, $hooks, $log_level, $soapserver, QUICKBOOKS_WSDL, $soap_options, $handler_options, $driver_options, $callback_options);
+$response = $Server->handle(true, true);
+
+// If you wanted, you could do something with $response here for debugging
+$fp = fopen(__FILE__.'_process.log', 'a+');
+fwrite($fp, $response);
+fclose($fp);
+
+function _customer_add_request($requestID, $user, $action, $ID, $extra, &$err, $last_action_time, $last_actionident_time, $version, $locale)
+{
+	mssql_connect('XXXX-XXX', 'xxx', 'xxxxxxx');
+	mssql_select_db('xxxxxx');
+	$row = mssql_fetch_array(mssql_query('SELECT * FROM cinfo WHERE cid=' . (int) $ID));
+
+	// Create and return a qbXML request
+	$xml = '<?xml version="1.0" encoding="utf-8"?>
+		<?qbxml version="8.0"?>
+		<QBXML>
+			<QBXMLMsgsRq onError="stopOnError">
+				<CustomerAddRq requestID="' . $requestID . '">
+					<CustomerAdd>
+						<Name>'. ucwords(htmlspecialchars(strtolower(trim($row['clname'])))) .' '. ucwords(htmlspecialchars(strtolower(trim($row['cfname'])))) .' ('. $ID .')</Name>
+						<CompanyName>'. ucwords(htmlspecialchars(strtolower(trim($row['clname'])))) .' '. ucwords(htmlspecialchars(strtolower(trim($row['cfname'])))) .'</CompanyName>
+						<FirstName>'. ucwords(htmlspecialchars(strtolower(trim($row['cfname'])))) .'</FirstName>
+						<LastName>'. ucwords(htmlspecialchars(strtolower(trim($row['clname'])))) .'</LastName>
+						<BillAddress>
+							<Addr1>'. ucwords(htmlspecialchars(strtolower(trim($row['caddr1'])))) .'</Addr1>
+							<City>'. ucwords(htmlspecialchars(strtolower(trim($row['ccity'])))) .'</City>
+							<State>'. trim($row['cstate']) .'</State>
+							<PostalCode>'. trim($row['czip1']) .'</PostalCode>
+							<Country>United States</Country>
+						</BillAddress>
+						<Phone>'. trim($row['chome']) .'</Phone>
+						<Email>'. trim($row['cemail']) .'</Email>
+						<Contact>'. ucwords(htmlspecialchars(strtolower(trim($row['cfname'])))) .' '. ucwords(htmlspecialchars(strtolower(trim($row['clname'])))) .'</Contact>
+					</CustomerAdd>
+				</CustomerAddRq>
+			</QBXMLMsgsRq>
+		</QBXML>';
+		
+	return $xml;
+}
+
+function _customer_add_response($requestID, $user, $action, $ID, $extra, &$err, $last_action_time, $last_actionident_time, $xml, $idents)
+{	
+	mssql_connect('XXXX-XXXX', 'xxx', 'xxxxxxx');
+	mssql_select_db('xxxxxx');
+	mssql_query("INSERT INTO [qb_ident_customer_map] (cid,ListID,EditSequence) VALUES (". (int) $ID .",'".trim($idents['ListID'])."','".trim($idents['EditSequence'])."');");
+}
+
+function _itemquery_request($requestID, $user, $action, $ID, $extra, &$err, $last_action_time, $last_actionident_time, $version, $locale)
+{
+		$xmlout='<?xml version="1.0" encoding="utf-8"?>
+<?qbxml version="8.0"?>
+<QBXML>
+	<QBXMLMsgsRq onError="stopOnError">
+		
+		<ItemQueryRq requestID="' . $requestID . '"> 
+			<ActiveStatus>All</ActiveStatus>
+		</ItemQueryRq>
+	
+	</QBXMLMsgsRq>
+</QBXML>';
+	
+	return $xmlout;
+}
+
+function _itemquery_response($requestID, $user, $action, $ID, $extra, &$err, $last_action_time, $last_actionident_time, $xml, $idents)
+{
+	mssql_connect('XXXX-XXXX', 'xxx', 'xxxxxxx');
+	mssql_select_db('xxxxxx');
+	mssql_query("INSERT INTO [qb_query_response] (qbxml_response) VALUES ('".trim($xml)."');");
+}

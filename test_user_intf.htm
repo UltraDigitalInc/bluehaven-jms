@@ -1,0 +1,1402 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>Job Management System 1.09.1 (Live)</title>
+		<noscript>Javascript is not enabled. Javascript is required for this application to function.</noscript>
+        <!-- Core + Skin CSS -->
+		<link rel="stylesheet" type="text/css" href="yui/build/reset-fonts/reset-fonts.css">
+		<link rel="stylesheet" type="text/css" href="yui/build/datatable/assets/skins/sam/datatable.css" />
+		<link rel="stylesheet" type="text/css" href="yui/build/container/assets/skins/sam/container.css" />
+		<link rel="stylesheet" type="text/css" href="yui/build/tabview/assets/skins/sam/tabview.css" />
+		<link rel="stylesheet" type="text/css" href="yui/build/menu/assets/skins/sam/menu.css" />
+		<link rel="stylesheet" type="text/css" href="yui/build/editor/assets/skins/sam/simpleeditor.css" />
+		<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.custom.css"/>
+		<link rel="stylesheet" type="text/css" href="js/jquery-tooltip/jquery.tooltip.css">
+		<link rel="stylesheet" type="text/css" href="js/jquery-treeview/jquery.treeview.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/bh_yui.css">
+		<link rel="stylesheet" type="text/css" href="bh_main.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="bh_main_print.css" media="print">
+		
+		<!-- Dependencies --> 
+        <script type="text/javascript" src="yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+        
+        <!-- Source File -->
+		<script type="text/javascript" src="yui/build/container/container-min.js"></script>
+		<script type="text/javascript" src="yui/build/datasource/datasource-min.js"></script>
+		<script type="text/javascript" src="yui/build/element/element-min.js"></script>
+		<script type="text/javascript" src="yui/build/tabview/tabview-min.js"></script>
+		<script type="text/javascript" src="yui/build/menu/menu-min.js"></script>
+		<script type="text/javascript" src="yui/build/editor/simpleeditor-min.js"></script>
+		<script type="text/javascript" src="yui/build/datatable/datatable-min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.custom.min.js"></script>
+		<script type="text/javascript" src="js/jquery.bgiframe.js"></script>
+		<script type="text/javascript" src="js/jquery.dimensions.js"></script>
+		<script type="text/javascript" src="js/jquery-treeview/lib/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/jquery-tooltip/jquery.tooltip.min.js"></script>
+		<script type="text/javascript" src="js/jquery-treeview/jquery.treeview.min.js"></script>
+		<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="js/jquery.formatCurrency-1.3.0.js"></script>
+		<script type="text/javascript" src="js/jquery.init.js"></script>
+		<script type="text/javascript" src="js/overlay.js"></script>
+		<script type="text/javascript" src="js/extension.js"></script>
+		
+		<script type="text/javascript">
+			window.name='JMSmain';
+		</script>
+		
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+	
+		</head>
+	<body class="yui-skin-sam">
+	<table class="transnb" align="center" width="100%" cellpadding=0 cellspacing=0 border="0">
+		<tr>
+			<td align="center" valign="top">
+				<div id="menudiv" align="center">
+<table class="outer" width="950px" cellpadding="0" cellspacing="0">
+   <tr>
+   	<td class="lg" align="left"><b>Maintenance</b></td>
+   	<td class="lg" align="right">
+			<table cellpadding="0" cellspacing="0">
+   			<tr>
+      			<td align="right">
+         				<form method="post">
+						<input type="hidden" name="action" value="reports">
+						<input type="hidden" name="call" value="csearch_results_mainmenu">
+						<input type="hidden" name="subq" value="clname">
+						<input type="hidden" name="oid" value="55">
+						<input type="hidden" name="spar" value="clname">
+						<input type="hidden" name="group" value="c.clname">
+						<input type="hidden" name="order" value="c.clname">
+						<input type="hidden" name="ascdesc1" value="asc">
+						<input type="hidden" name="ascdesc2" value="asc">
+						<input class="JMStooltip" type="text" size="25" name="sval" id="sval" value="Search Customer Last Name..." onFocus="ClearField('sval');" title="Enter Customer Last Name (Full or Partial) and Click the Search Icon">
+						<input class="transnb_button" type="image" src="images/search.gif" title="Click to Search">
+         				</form>
+					</td>
+   				<td class="lg" width="20">
+         				<form method="post">
+						<input type="hidden" name="action" value="message">
+						<input type="hidden" name="call" value="new_feedback">
+						<input class="transnb_button" type="image" src="images/server_edit.png" title="Submit Feedback">
+         				</form>
+   				</td>
+   				<td class="lg" width="20">
+						<form id="show_jms_messages" method="post">
+						<input type="hidden" name="action" value="message">
+						<input type="hidden" name="call" value="list">
+						<input class="transnb_button" type="image" src="images/email.png" title="Send or View Messages to other JMS Users">
+						</form>
+   				</td>
+	<td class="lg" align="center">
+	<form method="post">
+		<input type="hidden" name="action" value="reports">
+		<input type="hidden" name="call" value="office">
+		<input type="hidden" name="subq" value="commentlist">
+		<input type="hidden" name="oid" value="55">
+		<input class="transnb_button" type="image" src="images/comments.png" title="Post Office Comments. Admin Function Only">
+	</form>
+	</td>
+      			<td align="right">
+			<form method="post">
+			<input type="hidden" name="action" value="update_off">
+   		<select class="JMStooltip" name="noffid" onChange="this.form.submit();" title="Change Office by selecting from this menu">
+   		<option value="54">Atlanta</option>
+   		<option value="46">Austin</option>
+   		<option value="56">Baton Rouge</option>
+   		<option value="120">Birmingham</option>
+   		<option value="107">Charleston</option>
+   		<option value="57">Charlotte</option>
+   		<option value="63">Chico/Redding</option>
+   		<option value="126">Corpus Christi</option>
+   		<option value="75">DFW Metroplex</option>
+   		<option value="67">Fresno</option>
+   		<option value="143">Greensboro</option>
+   		<option value="144">Houston - Central</option>
+   		<option value="33">Indianapolis</option>
+   		<option value="69">Inland Empire: Main</option>
+   		<option value="37">Jackson</option>
+   		<option value="99">Jacksonville</option>
+   		<option value="34">Kansas City</option>
+   		<option value="38">Las Vegas</option>
+   		<option value="24">Mobile</option>
+   		<option value="150">Montgomery</option>
+   		<option value="59">MS-Gulf Coast</option>
+   		<option value="45">Nashville</option>
+   		<option value="55" SELECTED>New Orleans</option>
+   		<option value="60">New York</option>
+   		<option value="41">Oklahoma City</option>
+   		<option value="30">Orlando: Main</option>
+   		<option value="102">Pensacola</option>
+   		<option value="23">Philly: Main</option>
+   		<option value="111">Raleigh</option>
+   		<option value="47">San Antonio</option>
+   		<option value="28">San Diego</option>
+   		<option value="74">San Jose</option>
+   		<option value="49">Shreveport/Bossier</option>
+   		<option value="141">Spartanburg</option>
+   		<option value="36">St. Louis</option>
+   		<option value="50">Tucson</option>
+   		<option value="42">Tulsa</option>
+   		<option value="48">Tyler</option>
+   		<option value="174">Virginia Northern</option>
+   		<option value="52">West Palm Beach</option>
+   		<option value="89">BHNM Active</option>
+   		<option value="149">BHNM Customer Care</option>
+   		<option value="156">BHNM Miscellaneous</option>
+   		<option value="198">BHNM Office Template</option>
+   		<option value="138">BHNM Supplies Direct</option>
+   		<option value="197">Shared Files</option>
+   		<option value="193">BHNM Conversions</option>
+   		<option value="194">BHNM Vendors</option>
+   		<option value="173">FO: Abilene</option>
+   		<option value="192">FO: Alaska</option>
+   		<option value="116">FO: Albany</option>
+   		<option value="172">FO: Albuquerque</option>
+   		<option value="117">FO: Amarillo</option>
+   		<option value="191">FO: Augusta</option>
+   		<option value="35">FO: Beaumont TX</option>
+   		<option value="121">FO: Boise</option>
+   		<option value="122">FO: Boston</option>
+   		<option value="180">FO: Brownsville</option>
+   		<option value="171">FO: Bryan/College Station</option>
+   		<option value="123">FO: Buffalo</option>
+   		<option value="32">FO: Chicago</option>
+   		<option value="40">FO: Cincinnati</option>
+   		<option value="124">FO: Cleveland</option>
+   		<option value="176">FO: Columbia, SC</option>
+   		<option value="125">FO: Columbus</option>
+   		<option value="185">FO: Des Moines</option>
+   		<option value="128">FO: Detroit</option>
+   		<option value="179">FO: Jefferson City/Columbia MO</option>
+   		<option value="130">FO: Little Rock</option>
+   		<option value="147">FO: Louisville/Lexington</option>
+   		<option value="113">FO: Miami</option>
+   		<option value="132">FO: Minneapolis</option>
+   		<option value="133">FO: Norfolk</option>
+   		<option value="108">FO: OoA Unclassified</option>
+   		<option value="148">FO: Pittsburgh</option>
+   		<option value="134">FO: Portland</option>
+   		<option value="195">FO: Prescott/Flagstaff</option>
+   		<option value="135">FO: Providence</option>
+   		<option value="177">FO: Reno</option>
+   		<option value="178">FO: Richmond</option>
+   		<option value="188">FO: Rochester</option>
+   		<option value="181">FO: Salt Lake City</option>
+   		<option value="136">FO: Seattle</option>
+   		<option value="189">FO: Spokanne</option>
+   		<option value="196">FO: St George</option>
+   		<option value="187">FO: Syracuse</option>
+   		<option value="139">FO: Tallahassee</option>
+   		<option value="169">FO: Victoria, Tx</option>
+   		<option value="186">FO: Waco</option>
+   		<option value="105">FO: Wichita</option>
+   		<option value="190">FO: Yuma/El Centro</option>
+   		<option value="26">CL: Bakersfield</option>
+   		<option value="73">CL: Brentwood/East Bay</option>
+   		<option value="127">CL: Denver</option>
+   		<option value="80">CL: DFW Metro: Arlington</option>
+   		<option value="79">CL: DFW Metro: Garland</option>
+   		<option value="112">CL: El Paso</option>
+   		<option value="85">CL: Houston</option>
+   		<option value="87">CL: Houston - North</option>
+   		<option value="70">CL: Inland Empire: Coachella</option>
+   		<option value="43">CL: Knoxville</option>
+   		<option value="71">CL: LA/South Bay</option>
+   		<option value="62">CL: Maryland Central</option>
+   		<option value="44">CL: Memphis</option>
+   		<option value="76">CL: Midland/Lubbock</option>
+   		<option value="72">CL: Modesto</option>
+   		<option value="61">CL: Mohave</option>
+   		<option value="100">CL: Naples/Ft Myers</option>
+   		<option value="66">CL: North Bay</option>
+   		<option value="168">CL: NW Arkansas</option>
+   		<option value="101">CL: Ocala</option>
+   		<option value="27">CL: Orange County</option>
+   		<option value="114">CL: Orlando: Daytona</option>
+   		<option value="93">CL: Phoenix</option>
+   		<option value="145">CL: Phoenix - East</option>
+   		<option value="96">CL: Phoenix - West</option>
+   		<option value="58">CL: Puerto Rico</option>
+   		<option value="97">CL: Sacramento</option>
+   		<option value="175">CL: Sarasota</option>
+   		<option value="103">CL: Sarasota (Phasing Out)</option>
+   		<option value="115">CL: Savannah</option>
+   		<option value="51">CL: Tampa</option>
+   		<option value="68">CL: Valley & Ventura</option>
+   		<option value="106">CL: Virginia North (Phasing Out)</option>
+   		<option value="151">BH Finance - AZ</option>
+   		<option value="154">BH Finance - CA</option>
+   		<option value="155">BH Finance - FL</option>
+   		<option value="165">BH Finance - Hous N - TD</option>
+   		<option value="153">BH Finance - Hous N - TX</option>
+   		<option value="160">BH Finance - LA</option>
+   		<option value="152">BH Finance - Lv TX</option>
+   		<option value="161">BH Finance - Lv TX - TD</option>
+   		<option value="167">BH Finance - MS</option>
+   		<option value="170">BH Finance - Other States</option>
+   		<option value="159">BH Finance - TN</option>
+   		</select>
+   		</form>
+					</td>
+   				<td>
+					[ <span class="JMStooltip" title="It's You!">Ted Helton</span> ]</td><td> [<span class="JMStooltip" title="Click here to log off the JMS"><a class="transnb" href="./index.php?action=logoff"> Sign out </a></span>]
+   				</td>
+   			</tr>
+   		</table>
+   	</td>
+   </tr>
+   <tr>
+   	<td colspan="2" class="lg">
+			<table align="right">
+   			<tr>
+         		<form method="post">
+						<input type="hidden" name="action" value="pbconfig">
+      			<td align="right">
+						<input class="buttondkgrypnl60" type="submit" value="Price Book">
+					</td>
+         		</form>
+         		<form method="post">
+						<input type="hidden" name="action" value="maint">
+						<input type="hidden" name="call" value="leads">
+      			<td align="right">
+						<input class="buttondkgrypnl60" type="submit" value="Leads" >
+					</td>
+         		</form>
+         		<form method="post">
+						<input type="hidden" name="action" value="maint">
+						<input type="hidden" name="call" value="users">
+      			<td align="right">
+						<input class="buttondkgrypnl60" type="submit" value="Users" >
+					</td>
+         		</form>
+         		<form method="post">
+						<input type="hidden" name="action" value="maint">
+						<input type="hidden" name="call" value="off">
+      			<td align="right">
+						<input class="buttondkgrypnl60" type="submit" value="Offices" >
+					</td>
+         		</form>
+         		<form method="post">
+						<input type="hidden" name="action" value="maint">
+						<input type="hidden" name="call" value="IVR">
+						<input type="hidden" name="subq" value="list">
+      			<td align="right">
+						<input class="buttondkgrypnl60" type="submit" value="IVR/800" >
+					</td>
+         		</form>
+         		<form method="post">
+						<input type="hidden" name="action" value="maint">
+						<input type="hidden" name="call" value="IVR">
+						<input type="hidden" name="subq" value="zip_maint">
+      			<td align="right">
+						<input class="buttondkgrypnl60" type="submit" value="Matrix">
+					</td>
+         		</form>
+         		<form method="post">
+						<input type="hidden" name="action" value="maint">
+						<input type="hidden" name="call" value="commbuilder">
+      			<td align="right">
+						<input class="buttondkgrypnl60" type="submit" value="Comm Bldr">
+					</td>
+         		</form>
+         		<form method="post">
+						<input type="hidden" name="action" value="maint">
+						<input type="hidden" name="call" value="emailtemplate">
+      			<td align="right">
+						<input class="buttondkgrypnl60" type="submit" value="EMail Temps">
+					</td>
+         		</form>
+         		<form method="post">
+						<input type="hidden" name="action" value="maint">
+						<input type="hidden" name="call" value="users">
+						<input type="hidden" name="subq" value="pp">
+						<input type="hidden" name="userid" value="26">
+      			<td align="right">
+						<input class="buttondkgrypnl60" type="submit" value="PB Adjusts">
+					</td>
+         		</form>
+   <td align="right">
+   <form method="post">
+   	<input type="hidden" name="action" value="maint">
+   	<input type="hidden" name="call" value="off">
+   	<input type="hidden" name="subq" value="view">
+   	<input type="hidden" name="officeid" value="55">
+		<input class="buttondkgrypnl60" type="submit" value="Edit Office">
+   </form>
+   </td>
+      			<td align="right">
+         				<form method="post">
+						<input type="hidden" name="action" value="maint">
+						<input type="hidden" name="call" value="users">
+						<input type="hidden" name="subq" value="rp">
+						<input type="hidden" name="userid" value="26">
+						<input class="buttondkgrypnl60" type="submit" value="Options">
+         				</form>
+					</td>
+      			<td align="right">
+         				<form method="post">
+						<input type="hidden" name="action" value="main">
+						<input class="buttondkgrypnl60" type="submit" value="Main Menu">
+         				</form>
+					</td>
+      			<td align="right">
+<img id="showman0" src="images/help.png" title="MaintenanceMenu">
+<span id="hlptxt0"></span>
+
+						<div class="yui-overlay" id="manoverlay0" style="visibility:hidden">
+						<div class="hd"><div class="black">MaintenanceMenu <a href="https://jms.bhnmi.com/docs/helpnodes.php?nodeid=MaintenanceMenu&call=create" target="subDocViewer" onMouseOver="window.status='';return true;" onMouseOut="window.status=''; return true;" onclick="window.open('','subDocViewer','HEIGHT=700,WIDTH=900,status=0,scrollbars=1,dependent=1,resizable=0,toolbar=0,menubar=0,location=0,directories=0'); window.status=''; return true;">Add</a></div></div>
+						<div class="bd"><div class="black">This Help Node has not been completed</div></div>
+						<div class="ft"><div class="black"></div></div>
+						</div>
+									</td>
+		   		</tr>
+			</table>
+   	</td>
+   </tr>
+</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+<script type="text/javascript" src="js/jquery_users_func.js"></script>
+<table align="center" width="950px" border="0">
+<tr>
+   <td valign="top">
+		<table align="center" width="100%" border="0">
+			<tr>
+   			<td valign="top">
+					<table align="center" width="100%" border="0"
+						<tr>
+   						<td colspan="2">
+								<table class="outer" align="center" width="100%" border="0">
+									<tr>
+   									<td class="gray" valign="center">
+											<table><tr><td><h2><b>Edit User: <i>Harriet Battiste</i></b></h2></td><td></td></tr></table>
+										</td>
+   									<td class="gray" valign="right" width="20px">
+         									<form method="post">
+											<input type="hidden" name="action" value="maint">
+											<input type="hidden" name="call" value="users">
+											<input class="transnb" type="image" src="images/application_view_list.png" title="User List">
+         									</form>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+   						<td valign="top" align="left">
+<form id="UpdateUserForm" method="post">
+<input type="hidden" name="action" value="maint">
+<input type="hidden" name="call" value="users">
+<input type="hidden" name="subq" value="update">
+<input type="hidden" name="userid" value="912">
+<input type="hidden" name="office" value="55">
+<input type="hidden" name="off_demo" value="0">
+<input type="hidden" name="adminid" value="26">
+<input type="hidden" name="officeid" value="55">
+<input type="hidden" name="dsgfperiod" value="0">
+<input type="hidden" name="dsgfarray" value="">
+<input type="hidden" name="menutype" value="O">
+<input type="hidden" name="emailchrg value="0">
+<input type="hidden" name="JobCommEdit" value="0">
+			<div id="ViewUserInfo">
+				<ul>
+					<li><a href="#accinfo"><em>Account Info</em></a></li>
+					<li><a href="#secconf"><em>Security Levels</em></a></li>
+					<li><a href="#funconf"><em>Functional Access</em></a></li>
+					<li><a href="#altconf"><em>Profiles</em></a></li>
+					<li><a href="#sarconf"><em>Sales Rep</em></a></li>
+					<li><a href="#accconf"><em>Accounting</em></a></li>
+					<li><a href="#sysinfo"><em>System Information</em></a></li>
+				</ul>
+				<div id="accinfo">
+								<table align="left">
+									<tr>
+										<td align="right"><b>Login ID</b></td>
+										<td align="left"><font color="blue"><b>habat</b></font></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Security ID</b></td>
+										<td align="left"><font color="blue"><b>912</b></font></td>
+									</tr>
+									<tr>
+										<td align="right"><b>First Name</b></td>
+										<td align="left"><input class="bboxb" type="text" name="fname" value="Harriet" size="30"></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Last Name</b></td>
+										<td align="left"><input class="bboxb" type="text" name="lname" value="Battiste" size="30"></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Title/Role</b></td>
+										<td align="left"><input class="bboxb" type="text" name="stitle" value="" size="30"></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Hire Date</b></td>
+										<td align="left">
+											<input class="bboxb" type="text" id="d9" name="hdate" value="02/13/2006" size="15">
+										</td>
+									</tr>
+									<tr>
+										<td align="right" valign="top"><b>Manager</b></td>
+										<td align="left">
+											<select name="sidm">
+											<option value="443">Provensal, Sandra</option>
+											<option value="1550" SELECTED>Namer, Robert</option>
+											<option value="2092">Abadie, Judy</option>
+											</select>
+										</td>
+									</tr>
+								<input type="hidden" name="assistant" value="0">
+									<tr>
+										<td align="right"><b>Phone</b></td>
+										<td align="left"><input class="bboxb" type="text" name="phone" value="" size="15"></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Extension</b></td>
+										<td align="left"><input class="bboxb" type="text" name="extn" value="" size="15"></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Email</b></td>
+										<td align="left"><input class="bboxb" type="text" name="email" value="hbattiste@gm.bluehaven.com" size="40"></td>
+									</tr>
+								</table>
+				</div>
+				<div id="altconf">
+								<table align="left">
+									<tr>
+										<td align="right"><b>Select Alternate</b></td>
+										<td align="left">
+											<select name="altid">
+											<option value="0" SELECTED>None</option>
+											<option class="fontblack" value="641">Dana, Mark (DFW)(641)</option>
+											<option class="fontblack" value="1911">Firetti, Sal (Vir)(1911)</option>
+											<option class="fontblack" value="1925">Firetti, Frank (Vir)(1925)</option>
+											<option class="fontblack" value="1926">Firetti, JoAnn (Vir)(1926)</option>
+											<option class="fontblack" value="2139">Herbold, Sean (Hou)(2139)</option>
+											<option class="fontblack" value="577">Peppin, Brian (Cha)(577)</option>
+											<option class="fontblack" value="1708">Ripley, Steve (Tuc)(1708)</option>
+											<option class="fontblack" value="394">Salvo, Bob (Fre)(394)</option>
+											<option class="fontblack" value="1933">Smith, Kevin (Wes)(1933)</option>
+											<option class="fontblack" value="240">Walters, Rose (St.)(240)</option>
+											<option class="fontblack" value="647">Worthey, Tyler (San)(647)</option>
+											<option class="fontblack" value="2077">Namer, Robert (Bat)(2077)</option>
+											<option class="fontblack" value="2119">Abadie, Judy (Bat)(2119)</option>
+											<option class="fontblack" value="2020">Adm, JCC (FO:)(2020)</option>
+											<option class="fontblack" value="2005">Admin, Sarasota (CL:)(2005)</option>
+											<option class="fontblack" value="1014">Alberro, Jose (Las)(1014)</option>
+											<option class="fontblack" value="257">Allen, Jayme (Okl)(257)</option>
+											<option class="fontblack" value="1573">Anderson, Marc (CL:)(1573)</option>
+											<option class="fontblack" value="715">Barnett, George (Aus)(715)</option>
+											<option class="fontblack" value="2155">Battiste, Harriet (Bat)(2155)</option>
+											<option class="fontblack" value="1258">Bearden, Robert (St.)(1258)</option>
+											<option class="fontblack" value="1314">Bolin, Randall  (CL:)(1314)</option>
+											<option class="fontblack" value="1266">Bonnema, Kevin (Cha)(1266)</option>
+											<option class="fontblack" value="1986">Bonnema, Kevin (Spa)(1986)</option>
+											<option class="fontblack" value="2152">Boyles, Nathan (Okl)(2152)</option>
+											<option class="fontblack" value="1488">Briggs, David (CL:)(1488)</option>
+											<option class="fontblack" value="1295">Briggs, David (Hou)(1295)</option>
+											<option class="fontblack" value="321">Briggs, David-S (CL:)(321)</option>
+											<option class="fontblack" value="649">Briggs, David-C (CL:)(649)</option>
+											<option class="fontblack" value="2081">Brister, Mark  (Cor)(2081)</option>
+											<option class="fontblack" value="1112">Brock, Curtis (Ral)(1112)</option>
+											<option class="fontblack" value="1897">Bryan, Adm (FO:)(1897)</option>
+											<option class="fontblack" value="1892">Burger, Justin (San)(1892)</option>
+											<option class="fontblack" value="2120">Cabral, Jennifer (Cor)(2120)</option>
+											<option class="fontblack" value="1755">Calvitti, Joe (Phi)(1755)</option>
+											<option class="fontblack" value="264">Calvitti, Vince (Phi)(264)</option>
+											<option class="fontblack" value="265">Calvitti, Anthony (Phi)(265)</option>
+											<option class="fontblack" value="267">Calvitti Jr, John (Phi)(267)</option>
+											<option class="fontblack" value="2105">Case, Thomas (New)(2105)</option>
+											<option class="fontblack" value="2122">Cassel, Andrew (Jac)(2122)</option>
+											<option class="fontblack" value="762">Cassel, Andrew (DFW)(762)</option>
+											<option class="fontblack" value="1477">Chance, Bradley (CL:)(1477)</option>
+											<option class="fontblack" value="82">Clothier, Mike (DFW)(82)</option>
+											<option class="fontblack" value="2040">Colella, Jerry (Inl)(2040)</option>
+											<option class="fontblack" value="287">Cox, Gerry (Cha)(287)</option>
+											<option class="fontblack" value="1472">Curtis, John (Phi)(1472)</option>
+											<option class="fontblack" value="2097">Davis, Dora (Hou)(2097)</option>
+											<option class="fontblack" value="2079">Davis, Chuck (Jac)(2079)</option>
+											<option class="fontblack" value="913">Demar, Steve (CL:)(913)</option>
+											<option class="fontblack" value="2089">DiSantis, Gregg (Phi)(2089)</option>
+											<option class="fontblack" value="2116">Dobbins, Chris (Tyl)(2116)</option>
+											<option class="fontblack" value="1990">Dott, James (Kan)(1990)</option>
+											<option class="fontblack" value="1019">Durling, Richard (Las)(1019)</option>
+											<option class="fontblack" value="2145">Eldridge, Boyce (Shr)(2145)</option>
+											<option class="fontblack" value="1147">Firetti, Frank (CL:)(1147)</option>
+											<option class="fontblack" value="988">Firetti, Salvatore  (CL:)(988)</option>
+											<option class="fontblack" value="1613">Firetti, JoAnn (CL:)(1613)</option>
+											<option class="fontblack" value="2128">Ford, John (Hou)(2128)</option>
+											<option class="fontblack" value="2102">FORE, GARY (New)(2102)</option>
+											<option class="fontblack" value="1007">Fournier, Craig  (CL:)(1007)</option>
+											<option class="fontblack" value="2106">FRANKLIN, DONALD (New)(2106)</option>
+											<option class="fontblack" value="2075">Freeze, Leslie (Hou)(2075)</option>
+											<option class="fontblack" value="1300">Gardner, Don (Hou)(1300)</option>
+											<option class="fontblack" value="328">Gardner, Don (CL:)(328)</option>
+											<option class="fontblack" value="543">Gennusa, Duke (New)(543)</option>
+											<option class="fontblack" value="2078">Gennusa, Duke (Bat)(2078)</option>
+											<option class="fontblack" value="1714">Geoffrey, Acker (CL:)(1714)</option>
+											<option class="fontblack" value="1261">Gilmore, Jeremy (St.)(1261)</option>
+											<option class="fontblack" value="2147">Grijalva, Ron (San)(2147)</option>
+											<option class="fontblack" value="363">Hanekom, Arno (Atl)(363)</option>
+											<option class="fontblack" value="346">Harris, Steve (Tyl)(346)</option>
+											<option class="fontblack" value="796">Hart, Larry (Phi)(796)</option>
+											<option class="fontblack" value="923">Harting, James (Jac)(923)</option>
+											<option class="fontblack" value="1772">Heileon, Rick (Orl)(1772)</option>
+											<option class="fontblack" value="786">Hinz, Don (Tyl)(786)</option>
+											<option class="fontblack" value="1838">Holley, Michele (CL:)(1838)</option>
+											<option class="fontblack" value="2110">Hoover, David (DFW)(2110)</option>
+											<option class="fontblack" value="2137">House, House (Hou)(2137)</option>
+											<option class="fontblack" value="2138">House, D (DFW)(2138)</option>
+											<option class="fontblack" value="1989">Hunt, Allen (Spa)(1989)</option>
+											<option class="fontblack" value="784">Hunt, Allen (Cha)(784)</option>
+											<option class="fontblack" value="2123">Jackson, Ray (Aus)(2123)</option>
+											<option class="fontblack" value="1013">Johnson, Gregory  (Las)(1013)</option>
+											<option class="fontblack" value="103">Kelley, Jamie (DFW)(103)</option>
+											<option class="fontblack" value="2100">Kellly, Gary (Bat)(2100)</option>
+											<option class="fontblack" value="2133">Kelly, Gary (Mob)(2133)</option>
+											<option class="fontblack" value="2134">Kelly, Gary (Pen)(2134)</option>
+											<option class="fontblack" value="2135">Kelly, Gary (Mon)(2135)</option>
+											<option class="fontblack" value="2007">Kempton, Stan (Pen)(2007)</option>
+											<option class="fontblack" value="1649">Kempton, Stan (Mon)(1649)</option>
+											<option class="fontblack" value="840">Kempton, Stan (Mob)(840)</option>
+											<option class="fontblack" value="728">Kind, Lee (New)(728)</option>
+											<option class="fontblack" value="189">Kirk, Ed (Tuc)(189)</option>
+											<option class="fontblack" value="1819">Kohlman, Jerry (Shr)(1819)</option>
+											<option class="fontblack" value="2048">Kramer, Jerry (CL:)(2048)</option>
+											<option class="fontblack" value="2003">Lang, John (Las)(2003)</option>
+											<option class="fontblack" value="2044">Lawson, Tony-N (CL:)(2044)</option>
+											<option class="fontblack" value="1283">Leads, Old (Bat)(1283)</option>
+											<option class="fontblack" value="1011">Leavitt, David (Las)(1011)</option>
+											<option class="fontblack" value="1968">Lesnik, Ranae (FO:)(1968)</option>
+											<option class="fontblack" value="1775">Lewis, Stephanie (Las)(1775)</option>
+											<option class="fontblack" value="1559">Little, Jeff (Cha)(1559)</option>
+											<option class="fontblack" value="1987">Little, Jeff (Spa)(1987)</option>
+											<option class="fontblack" value="2000">Little, Jeff (Cha)(2000)</option>
+											<option class="fontblack" value="925">Love, James (Jac)(925)</option>
+											<option class="fontblack" value="940">Lucas, Debora (Chi)(940)</option>
+											<option class="fontblack" value="521">Manz, George (New)(521)</option>
+											<option class="fontblack" value="2113">Martin, Damian (Hou)(2113)</option>
+											<option class="fontblack" value="1822">McDonald, Marc (CL:)(1822)</option>
+											<option class="fontblack" value="1863">McDonnell, Terry  (Spa)(1863)</option>
+											<option class="fontblack" value="1798">Mcleary, David (Okl)(1798)</option>
+											<option class="fontblack" value="2109">McSween, Gary (DFW)(2109)</option>
+											<option class="fontblack" value="795">Melissen, Jack (Phi)(795)</option>
+											<option class="fontblack" value="2030">Melton, Trace  (CL:)(2030)</option>
+											<option class="fontblack" value="2037">Miller, Gayle (Vir)(2037)</option>
+											<option class="fontblack" value="2118">Miller, John (New)(2118)</option>
+											<option class="fontblack" value="2129">Miller, John (Bat)(2129)</option>
+											<option class="fontblack" value="2158">Misiak, John (New)(2158)</option>
+											<option class="fontblack" value="2159">Misiak, John (Bat)(2159)</option>
+											<option class="fontblack" value="2021">Mitchell, Jon (Mon)(2021)</option>
+											<option class="fontblack" value="2111">Morcillo, John (DFW)(2111)</option>
+											<option class="fontblack" value="2144">Mrozek, Shaun (Shr)(2144)</option>
+											<option class="fontblack" value="1487">Murray, Gerelad (CL:)(1487)</option>
+											<option class="fontblack" value="2012">Murrell, Steven (Hou)(2012)</option>
+											<option class="fontblack" value="1550">Namer, Robert (New)(1550)</option>
+											<option class="fontblack" value="1733">Namer, Rafael (New)(1733)</option>
+											<option class="fontblack" value="2130">Namer, Rafael (Bat)(2130)</option>
+											<option class="fontblack" value="2127">Namer, Robert (San)(2127)</option>
+											<option class="fontblack" value="2140">Namer, Robert (Hou)(2140)</option>
+											<option class="fontblack" value="2141">Namer, Robert (DFW)(2141)</option>
+											<option class="fontblack" value="2094">Nicklas, Kevin (Hou)(2094)</option>
+											<option class="fontblack" value="1594">Nixon, Tracy (Hou)(1594)</option>
+											<option class="fontblack" value="2126">Ogrady, Jack (Fre)(2126)</option>
+											<option class="fontblack" value="2117">Old, Leads (Hou)(2117)</option>
+											<option class="fontblack" value="2131">Owens, Steve (Tul)(2131)</option>
+											<option class="fontblack" value="613">Payne, Scott (Phi)(613)</option>
+											<option class="fontblack" value="395">Peppin, Dave (Cha)(395)</option>
+											<option class="fontblack" value="1935">Peppin, Rob (Cha)(1935)</option>
+											<option class="fontblack" value="2082">Peppin, Jodi (Cha)(2082)</option>
+											<option class="fontblack" value="987">Phalen, Jeff (Tuc)(987)</option>
+											<option class="fontblack" value="2070">Pinell, Carl (CL:)(2070)</option>
+											<option class="fontblack" value="419">Pizzutello, Mike (DFW)(419)</option>
+											<option class="fontblack" value="199">Pochmann, Laine (DFW)(199)</option>
+											<option class="fontblack" value="1936">Powell, Peter (Phi)(1936)</option>
+											<option class="fontblack" value="1830">Preble, John (Tuc)(1830)</option>
+											<option class="fontblack" value="345">Prince, Creig (Tyl)(345)</option>
+											<option class="fontblack" value="2143">Rees, Bryan (Shr)(2143)</option>
+											<option class="fontblack" value="1651">Richardet, Ken (St.)(1651)</option>
+											<option class="fontblack" value="1602">Ripley, Steve Sr. (CL:)(1602)</option>
+											<option class="fontblack" value="280">Rivera, Kara (New)(280)</option>
+											<option class="fontblack" value="520">Rivera, Carmine (New)(520)</option>
+											<option class="fontblack" value="1400">Rosales, Steve (Phi)(1400)</option>
+											<option class="fontblack" value="546">Rowland, John (DFW)(546)</option>
+											<option class="fontblack" value="1009">Rulapaugh, Marty (CL:)(1009)</option>
+											<option class="fontblack" value="2101">Rutherford, Scott (Hou)(2101)</option>
+											<option class="fontblack" value="76">Sampson, Joel (DFW)(76)</option>
+											<option class="fontblack" value="272">Schroeder, Robert (Phi)(272)</option>
+											<option class="fontblack" value="2084">Schwarz, Nanette (Cor)(2084)</option>
+											<option class="fontblack" value="2149">Seaton, John (Inl)(2149)</option>
+											<option class="fontblack" value="2095">Seifert, Daren (Hou)(2095)</option>
+											<option class="fontblack" value="2054">Skinner, Steve (Las)(2054)</option>
+											<option class="fontblack" value="1978">Smith, Cole (FO:)(1978)</option>
+											<option class="fontblack" value="2153">Sottile, Peter (Inl)(2153)</option>
+											<option class="fontblack" value="1006">Stanley, Dave  (CL:)(1006)</option>
+											<option class="fontblack" value="263">Stoelker, Larry (Phi)(263)</option>
+											<option class="fontblack" value="1619">Summey, Brian (CL:)(1619)</option>
+											<option class="fontblack" value="2157">Taylor, Bob (Vir)(2157)</option>
+											<option class="fontblack" value="1514">Thalmann, Craig (New)(1514)</option>
+											<option class="fontblack" value="2096">Thurston, Stephen (Hou)(2096)</option>
+											<option class="fontblack" value="1262">Tocco, Lenny (St.)(1262)</option>
+											<option class="fontblack" value="1004">Tonnessen, Gunnar (CL:)(1004)</option>
+											<option class="fontblack" value="2154">Turbyfill, Bob (Jac)(2154)</option>
+											<option class="fontblack" value="1749">Twigg, Jerry (CL:)(1749)</option>
+											<option class="fontblack" value="1309">Vaudagna, Michael (Hou)(1309)</option>
+											<option class="fontblack" value="1985">Velasquez, Peter (Atl)(1985)</option>
+											<option class="fontblack" value="1206">Vicars, Gary (CL:)(1206)</option>
+											<option class="fontblack" value="586">Webb, Mike (Tuc)(586)</option>
+											<option class="fontblack" value="1806">William, Harold  (Cor)(1806)</option>
+											<option class="fontblack" value="1338">Williams, Sam (Hou)(1338)</option>
+											<option class="fontblack" value="701">Worthey, Casey (San)(701)</option>
+											<option class="fontblack" value="2125">Worthey, Casey (Aus)(2125)</option>
+											<option class="fontblack" value="78">Wright, Mitch (DFW)(78)</option>
+											<option class="fontblack" value="1156">Wright, Amie (Mob)(1156)</option>
+											<option class="fontblack" value="2022">Wright, Amie (Pen)(2022)</option>
+											<option class="fontblack" value="90">Zelrick, John (DFW)(90)</option>
+											</select>
+										</td>
+									</tr>
+											</td>
+										</tr>
+								</table>
+				</div>
+				<div id="secconf">
+								<table align="left">
+									<tr>
+										<td colspan="2">
+											<table width="100%">
+												<tr>
+													<td align="left"><b>Current</b> <a href="#"><span class="JMStooltip" title="Current Security Levels"><img src="images/info.gif"></span></a></td>													<td align="left"><b>Set</b> <a href="#"><span class="JMStooltip" title="These settings will not be applied until the next time the User logs into the JMS"><img src="images/info.gif"></span></a></td>													<td align="left">
+													</td>												</tr>
+												<tr>
+													<td valign="top"><table><tr>	<td align="right">1	</td>	<td align="left"><b>Estimates</b> 	</td>	<td align="left"><span class="JMStooltip" title="
+	<b>Estimates</b><br>
+	<p>
+	Level 1 - Sales Rep<br>
+	- Create/Read/Update/Delete Estimates on Leads directly assigned<br>
+	- Cannot View Cost
+	</p><br>
+	<p>
+	Level 5 - Sales Manager<br>
+	- Create/Read/Update/Delete Estimates on Leads directly Assigned and Leads for Sales Reps directly assigned<br>
+	- Cannot View Cost
+	</p><br>
+	<p>
+	Level 6 - General Manager<br>
+	- Create/Read/Update/Delete Estimates on Leads for entire Office<br>
+	- View Cost
+	</p><br>
+	<p>
+	Level 9 - Support/Admin<br>
+	- Same as General Manager
+	</p>
+	"><img src="images/info.gif"></span>	</td></tr><tr>	<td align="right">1	</td>	<td align="left"><b>Contracts</b> 	</td>	<td align="left"><span class="JMStooltip" title="
+	<b>Contracts</b><br>
+	<p>
+	Level 1 - Sales Rep<br>
+	- Read Contracts for directly assigned Leads/Customers<br>
+	- Cannot Create Contracts<br>
+	- Create/Read Addendums<br>
+	- Cannot View Cost
+	</p><br>
+	<p>
+	Level 5 - Sales Manager<br>
+	- Create/Read/Update/Delete Contracts for directly assigned Leads/Customers and Leads/Customers for Sales Reps directly assigned<br>
+	- Create/Read/Update/Delete Addendums for directly assigned Leads/Customers and Leads/Customers for Sales Reps directly assigned<br>
+	- Cannot Create GM Adjusts<br>
+	- Cannot View Cost
+	</p><br>
+	<p>
+	Level 6 - General Manager<br>
+	- Create/Read/Update/Delete Contracts for entire Office<br>
+	- Create/Read/Update/Delete Addendums for entire Office<br>
+	- Create/Read/Update/Delete GM Adjust for entire Office<br>
+	- View Cost
+	</p><br>
+	<p>
+	Level 9 - Support/Admin<br>
+	- Same as General Manager
+	</p>
+	"><img src="images/info.gif"></span>	</td></tr><tr>	<td align="right">1	</td>	<td align="left"><b>Jobs</b> 	</td>	<td align="left"><span class="JMStooltip" title="
+	<b>Jobs</b><br>
+	<p>
+	Level 1 - Sales Rep<br>
+	- Read Jobs for directly assigned Leads/Customers<br>
+	- Cannot Create Jobs<br>
+	- Create/Read Addendums<br>
+	- Cannot View Cost
+	</p><br>
+	<p>
+	Level 5 - Sales Manager<br>
+	- Create/Read/Update/Delete Jobs for directly assigned Leads/Customers and Leads/Customers for Sales Reps directly assigned<br>
+	- Create/Read/Update/Delete Addendums for directly assigned Leads/Customers and Leads/Customers for Sales Reps directly assigned<br>
+	- Cannot Create GM Adjusts<br>
+	- Cannot View Cost
+	</p><br>
+	<p>
+	Level 6 - General Manager<br>
+	- Create/Read/Update/Delete Jobs for entire Office<br>
+	- Create/Read/Update/Delete Addendums for entire Office<br>
+	- Create/Read/Update/Delete GM Adjust for entire Office<br>
+	- MAS Ready/Not Ready Jobs<br>
+	- View Cost</p><br>
+	<p>
+	Level 9 - Support/Admin<br>
+	- Same as General Manager
+	</p>
+	"><img src="images/info.gif"></span>	</td></tr><tr>	<td align="right">1	</td>	<td align="left"><b>Leads</b> 	</td>	<td align="left"><span class="JMStooltip" title="
+	<b>Leads</b><br>
+	<p>
+	Level 1 - Sales Rep<br>
+	- Create/Read/Update directly assigned Leads
+	</p><br>
+	<p>
+	Level 4 - Sales Manager<br>
+	- Create/Read/Update directly assigned Leads and Leads for directly assigned Sales Reps<br>
+	- Move Leads between directly assigned Sales Reps or Staff
+	</p><br>
+	<p>
+	Level 5 - General Manager<br>
+	- Create/Read/Update Leads for entire Office<br>
+	- Move Leads to any Staff within Office<br>
+	- Return BHNM Provided Leads to Management or other Offices (see System Security)
+	</p><br>
+	<p>
+	Level 9 - Support/Admin<br>
+	- Create/Read/Update Leads for entire System<br>
+	- Move Leads to any Office/Staff within System<br>
+	</p>
+	"><img src="images/info.gif"></span>	</td></tr><tr>	<td align="right">1	</td>	<td align="left"><b>Reports</b> 	</td>	<td align="left"><span class="JMStooltip" title="
+	<b>Reports</b><br>
+	<p>
+	Level 1 - Sales Rep<br>
+	- Dig Standings<br>
+	- Sales & Commission (Self Only)
+	</p><br>
+	<p>
+	Level 5 - Sales Manager<br>
+	- Dig Standings<br>
+	- Lead Source (Default Office Only)<br>
+	- Zip Report<br>
+	- Sales & Commission (Self & assigned Sales Reps)
+	</p><br>
+	<p>
+	Level 6 - General Manager<br>
+	- All Level 5 Reports<br>
+	- CSR Report (requires Funcational Access setup)<br>
+	- Dig Reports<br>
+	- Job Progress<br>
+	- Operating Reports (enable GM/Operating Reports under Functional Access)<br>
+	</p><br>
+	<p>
+	Level 9 - Support/Admin<br>
+	- All Reports (some may require Functional Access setting)
+	</p>
+	"><img src="images/info.gif"></span>	</td></tr><tr>	<td align="right">1	</td>	<td align="left"><b>Messages</b> 	</td>	<td align="left"><span class="JMStooltip" title="
+	<b>Messages</b><br>
+	<p>
+	Level 1 - Sales Rep<br>
+	- Send and Receive Message from others in their Office<br>
+	- Receive from BHNM
+	</p><br>
+	<p>
+	Level 5 - Sales Manager<br>
+	- Send to and Receive from others in their Office<br>
+	- Send to and Receive from BHNM
+	</p><br>
+	<p>
+	Level 6 - General Manager<br>
+	- Send to and Receive from others in their Office<br>
+	- Send to and Receive from BHNM
+	</p><br>
+	<p>
+	Level 9 - Support/Admin<br>
+	- Send to and Receive from all Users and Resource Accounts
+	</p>
+	"><img src="images/info.gif"></span>	</td></tr><tr>	<td align="right">1	</td>	<td align="left"><b>System</b> 	</td>	<td align="left"><span class="JMStooltip" title="
+	<b>System</b><br>
+	<p>
+	Level 1 - Standard Access<br>
+	- Allows login to Default Office
+	</p><br>
+	<p>
+	Level 7 - Alternate Office Access<br>
+	- Access to Offices other than the Default Office (Alternate Office Access List Setup Required)<br>
+	</p><br>
+	<p>
+	Level 9 - Support/Admin<br>
+	- Unrestricted Access to all Offices
+	</p>
+	"><img src="images/info.gif"></span>	</td></tr></table>													</td>
+													<td valign="top"><table>
+<tr>
+	<td align="right">
+		<select name="alevel[]">
+				<option value="0">0</option>
+				<option value="1" SELECTED>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+		</select>
+	</td>
+	<td align="left">
+Estimates	</td>
+</tr>
+<tr>
+	<td align="right">
+		<select name="alevel[]">
+				<option value="0">0</option>
+				<option value="1" SELECTED>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+		</select>
+	</td>
+	<td align="left">
+Contracts	</td>
+</tr>
+<tr>
+	<td align="right">
+		<select name="alevel[]">
+				<option value="0">0</option>
+				<option value="1" SELECTED>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+		</select>
+	</td>
+	<td align="left">
+Jobs	</td>
+</tr>
+<tr>
+	<td align="right">
+		<select name="alevel[]">
+				<option value="0">0</option>
+				<option value="1" SELECTED>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+		</select>
+	</td>
+	<td align="left">
+Leads	</td>
+</tr>
+<tr>
+	<td align="right">
+		<select name="alevel[]">
+				<option value="0">0</option>
+				<option value="1" SELECTED>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+		</select>
+	</td>
+	<td align="left">
+Reports	</td>
+</tr>
+<tr>
+	<td align="right">
+		<select name="alevel[]">
+				<option value="0">0</option>
+				<option value="1" SELECTED>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+		</select>
+	</td>
+	<td align="left">
+Messages	</td>
+</tr>
+<tr>
+	<td align="right">
+		<select name="alevel[]">
+				<option value="0">0</option>
+				<option value="1" SELECTED>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+		</select>
+	</td>
+	<td align="left">
+System	</td>
+</tr>
+</table>
+													</td>
+													<td valign="top">											<input type="hidden" name="updt_m_plev" value="0"></td>
+											<input type="hidden" name="updt_m_llev" value="0"></td>
+											<input type="hidden" name="updt_m_ulev" value="0"></td>
+											<input type="hidden" name="updt_m_mlev" value="0"></td>
+											<input type="hidden" name="updt_m_tlev" value="0"></td>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+<br>				</div>
+				<div id="accconf">
+								<table align="left">
+      							<tr>
+   									<td align="right"><b>Accounting Office</b></td>
+   									<td align="left">
+   										<input class="bboxb" type="text" name="mas_office" value="250" size="5">
+										</td>
+									</tr>
+      								<tr>
+   									<td align="right"><b>Accounting Payroll ID</b></td>
+   									<td align="left">
+   										<input class="bboxb" type="text" name="mas_prid" value="" size="7">
+										</td>
+									</tr>
+   										<input type="hidden" name="mas_div" value="25">
+									</tr>
+									<tr>
+   									<td align="right"><b>New Construction Link</b></td>
+   									<td align="left">
+   										<select name="masid">
+   											<option value="0">None</option>
+   											<option value="0237:25" SELECTED>(25) (0237) HARRIET L. BATTISTE</option>
+   											<option value="0242:66">(66) (0242) HARRIET L. BATTISTE</option>
+   											<option value="HOUS:04">(04) (HOUS) HOUSE: BATON ROUGE</option>
+   											<option value="HOUS:97">(97) (HOUS) HOUSE-REMODELS: BATON ROUGE</option>
+   										</select>
+   									</td>
+   								</tr>
+   									<input type="hidden" name="rmas_div" value="0">
+									</tr>
+									<tr>
+   									<td align="right"><b>Renovation Link</b></td>
+   									<td align="left">
+   										<select name="rmasid">
+   											<option value="0">None</option>
+   											<option value="0237:25">(25) (0237) HARRIET L. BATTISTE</option>
+   											<option value="0242:66">(66) (0242) HARRIET L. BATTISTE</option>
+   											<option value="HOUS:04">(04) (HOUS) HOUSE: BATON ROUGE</option>
+   											<option value="HOUS:97">(97) (HOUS) HOUSE-REMODELS: BATON ROUGE</option>
+   										</select>
+   									</td>
+   								</tr>
+								</table>
+				</div>
+				<div id="funconf">
+								<table align="left">
+									<tr>
+										<td align="right"><b>Accounting Release</b></td>
+										<td align="left">
+											<select class="JMStooltip" name="acctngrelease" title="Enables the ability to approve Jobs for release to Accounting (MAS Ready / MAS Not Ready)">
+												<option value="1">Yes</option>
+												<option value="0" SELECTED>No</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Developer Access</b></td>
+										<td class="JMStooltip" align="left" title="Grants Developer access to the JMS">
+											<select name="devmode">
+												<option value="1">Yes</option>
+												<option value="0" SELECTED>No</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Development Tester</b></td>
+													<td align="left">
+														<select class="JMStooltip" name="tester" title="Grants access to features under Development for Testing purposes">
+												<option value="1">Yes</option>
+												<option value="0" SELECTED>No</option>
+														</select>
+													</td>
+												</tr>
+									<tr>
+   									<td align="right"><b>Admin Comment Level</b></td>
+   									<td align="left">
+      									<select class="JMStooltip" name="admstaff" title="Grants access to Office Comments">
+      									<option value="0" SELECTED>None</option>
+      									<option value="1">Low</option>
+      									<option value="2">Medium</option>
+      									<option value="3">High</option>
+      									</select>
+      								</td>
+									</tr>
+												<tr>
+													<td align="right"><b>Modify Price/Commissions</b></td>
+													<td class="JMStooltip" align="left" title="Allows User to Adjust Price per Book and Base Commission on Estimate Retail Breakdown">
+														<select name="modcomm">
+												<option value="1">Yes</option>
+												<option value="0" SELECTED>No</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Excl Messaging</b></td>
+													<td class="JMStooltip" align="left" title="Excludes User from System Messages (Defunct)">
+														<select name="excmess">
+												<option value="1">Yes</option>
+												<option value="0" SELECTED>No</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>GM/Operating Reports</b></td>
+													<td class="JMStooltip" align="left" title="Grants access to General Manager Operating reports">
+														<select name="gmreports">
+												<option value="1">Yes</option>
+												<option value="0" SELECTED>No</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Admin Dig Report</b></td>
+													<td class="JMStooltip" align="left" title="Grants access to the Administrative Dig Report">
+														<select name="admindigreport">
+												<option value="2">Create</option>
+												<option value="1">View</option>
+												<option value="0" SELECTED>No Access</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Contact List</b></td>
+													<td align="left">
+														<select name="contactlist">
+												<option value="1">Yes</option>
+												<option value="0" SELECTED>No</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+   												<td align="right"><b>After Lead Update</b></td>
+   												<td align="left">
+														<select class="JMStooltip" name="returntolist" title="Sets the default action taken after Updating a Lead">
+			<option value="0" SELECTED>Return to Lead</option>
+			<option value="1">Return to List</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Office List</b></td>
+													<td align="left">
+														<select class="JMStooltip" name="officelist" title="Set the sort order of the Office Listing for Users who have access to switch or edit Offices">
+												<option value="A">Alpha</option>
+												<option value="N" SELECTED>Numeric</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Email Notify</b></td>
+													<td align="left">
+														<select class="JMStooltip" name="enotify" title="Enables Email Notifications from the JMS to User (Requires valid Email Address)">
+												<option value="1" SELECTED>Yes</option>
+												<option value="0">No</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>CS Rep Level</b></td>
+													<td align="left">
+														<select class="JMStooltip" name="csrep" title="Grants access to Customer Service Module">
+												<option value="9">9</option>
+												<option value="8">8</option>
+												<option value="7">7</option>
+												<option value="6">6</option>
+												<option value="5">5</option>
+												<option value="4">4</option>
+												<option value="3">3</option>
+												<option value="2">2</option>
+												<option value="1" SELECTED>1</option>
+												<option value="0">0</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Email Templates</b></td>
+													<td class="JMStooltip" align="left" title="Grants access to Email Template Module">
+														<select name="emailtemplateaccess">
+												<option value="9">9</option>
+												<option value="8">8</option>
+												<option value="7">7</option>
+												<option value="6">6</option>
+												<option value="5">5</option>
+												<option value="4">4</option>
+												<option value="3">3</option>
+												<option value="2">2</option>
+												<option value="1" SELECTED>1</option>
+												<option value="0">0</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Network Leads</b></td>
+													<td align="left">
+														<select class="JMStooltip" name="networkaccess" title="Grants access to Network Leads Module">
+												<option value="0">0</option>
+												<option value="1" SELECTED>1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>File Cabinet</b></td>
+													<td align="left">
+														<select class="JMStooltip" name="filestoreaccess" title="Grants access to JMS File Cabinet (Office Configuration also required)">
+												<option value="0" SELECTED>0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Construction Dates</b></td>
+													<td align="left">
+														<select class="JMStooltip" name="constructdateaccess" title="Grants access to the Construction Dates Module on the Customer OneSheet">
+												<option value="0" SELECTED>0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Purchase Order</b></td>
+													<td align="left">
+														<select class="JMStooltip" name="PurchaseOrder" title="Grants access to Purchasing Module (in Development)">
+												<option value="9">9</option>
+												<option value="8">8</option>
+												<option value="7">7</option>
+												<option value="6">6</option>
+												<option value="5">5</option>
+												<option value="4">4</option>
+												<option value="3">3</option>
+												<option value="2">2</option>
+												<option value="1">1</option>
+												<option value="0" SELECTED>0</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right"><b>Pipeline Report</b></td>
+													<td align="left">
+														<select class="JMStooltip" name="conspiperpt" title="Grants access to Office Pipeline Report<br>NOTE currently only activates report for viewing at level 6 or above">
+												<option value="9">9</option>
+												<option value="8">8</option>
+												<option value="7">7</option>
+												<option value="6">6</option>
+												<option value="5">5</option>
+												<option value="4">4</option>
+												<option value="3">3</option>
+												<option value="2">2</option>
+												<option value="1">1</option>
+												<option value="0" SELECTED>0</option>
+														</select>
+													</td>
+												</tr>
+								</table>
+				</div>
+				<div id="sarconf">
+								<table align="left">
+									<tr>
+										<td align="right"><b>Sales Rep</b></td>
+										<td align="left"><input class="transnb_button" type="checkbox" name="salesrep" value="1" CHECKED></td>
+									</tr>
+      							<tr>
+   									<td align="right" title="Set Date to Activate New Commission Tracking"><b>New Commissions</b></td>
+   									<td align="left">
+   										<input class="bboxb" type="text" name="newcommdate" id="d10" value="12/31/2025" size="15">
+										</td>
+									</tr>
+									<tr>
+										<td align="left"><b>Sales Rep Begin Balance</b></td>
+										<td align="right">
+										</td>
+									</tr>
+									<tr>
+										<td align="left"><b>Sales Rep Begin Balance</b></td>
+										<td align="right">
+										</td>
+									</tr>
+									<tr>
+										<td valign="top" align="center"  colspan="2">
+											<iframe src="subs/srepbeginbalance.php?a=list&bbsid=912" frameborder="0" scrolling="auto" width="100%" height="100%" align="right"></iframe>
+										</td>
+									</tr>
+								</table>
+				</div>
+				<div id="sysinfo">
+								<table align="left">
+									<tr>
+   									<td align="right"><b>Logged In</b></td>
+										<td align="left">
+No										</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Last Login</b></td>
+										<td align="left">06/21/10 7:28AM										</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Date Added</b></td>
+										<td align="left">03/22/06 10:36AM										</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Date Updated</b></td>
+										<td align="left">06/04/10 11:02AM										</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Updated By</b></td>
+										<td align="left">Robert Namer										</td>
+									<tr>
+										<td align="right"><b>Logons</b></td>
+										<td align="left">3</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Logoffs</b></td>
+										<td align="left">3</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Events</b></td>
+										<td align="left">41</td>
+									</tr>
+									<tr>
+										<td><img src="images/pixel.gif"></td>
+										<td><img src="images/pixel.gif"></td>
+									</tr>
+							</table>
+				</div>
+			</div>
+							</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+</form>
+		</td>
+		<td valign="top">
+			<table align="left" border=0>
+<tr>
+   <td align="right">
+		<table border=0>
+			<tr>
+   			<td>
+					<input class="buttondkgrypnl80" id="submituserupdate" type="submit" value="Update">
+				</td>
+			</tr>
+			<tr>
+		<form method="post">
+		<input type="hidden" name="action" value="maint">
+		<input type="hidden" name="call" value="users">
+		<input type="hidden" name="subq" value="rp">
+		<input type="hidden" name="userid" value="912">
+		<input type="hidden" name="officeid" value="55">
+   			<td>
+					<input class="buttondkgrypnl80" type="submit" value="Reset Pswrd">
+				</td>
+		</form>
+			</tr>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+   <td align="center">
+View S&C<br><form method="post">
+	<input type="hidden" name="action" value="reports">
+	<input type="hidden" name="call" value="srpage">
+	<input type="hidden" name="stg" value="2">
+	<input type="hidden" name="incsecondary" value="1">
+	<input type="hidden" name="showcommission" value="1">
+	<input type="hidden" name="showadjust" value="1">
+	<input type="hidden" name="showbonus" value="1">
+	<input type="hidden" name="showloan" value="1">
+	<input type="hidden" name="showdraw" value="1">
+	<input type="hidden" name="showpipeline" value="1">
+	<input type="hidden" name="sid" value="912">
+	<input class="transnb JMStooltip" type="image" src="images/table_go.png" height="12" width="12" title="View Sales Rep Page">
+</form>
+	</td>
+</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+				</td>
+			</tr>
+		</table>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+<div class="PrintOnly">
+<center>
+Copyright &copy; 2010 Blue Haven Pools &amp; Spas</center>
+</div>
+			</td>
+		</tr>
+	</table>
+<br>
+	</body>
+</html>
+ 

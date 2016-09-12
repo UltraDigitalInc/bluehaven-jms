@@ -1,0 +1,10 @@
+$(function(){
+   $('#d1').datepicker();
+   $('#d2').datepicker();
+   $('#d3').datepicker();
+   $('#d4').datepicker();
+   $('#d5').datepicker();
+   $('#d6').datepicker();
+   $('#d7').datepicker();
+   $('#d8').datepicker();
+});

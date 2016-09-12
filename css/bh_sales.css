@@ -1,0 +1,60 @@
+#SalesHeaderContainer {
+    width: 755px;
+    float: left;
+    clear: both;
+}
+
+#SalesCartContainer {
+    width: 750px;
+    float: left;
+    margin-top: 3px;
+}
+
+#CustomerData {
+    float: left;
+    width: 754px;
+}
+
+#CustomerSales {
+    float: right;
+    width: 372px;
+    background-color: white;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+}
+
+h3 {
+    text-align: left;
+}
+
+fieldset {
+    text-align: left;
+    background-color: white;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+}
+
+fieldset > legend {
+    position: relative;
+    padding: 0.2em 0.5em;
+    border:1px solid grey;
+    color:grey;
+    background-color: white;
+    font-size:90%;
+    text-align:right;
+}
+
+fieldset > label {
+    position: relative;
+    margin-right:0.5em;
+    padding-top:0.2em;
+    text-align:right;
+    font-weight:bold;
+}
+
+fieldset > div {
+    position: relative;
+    width: 200px;
+}

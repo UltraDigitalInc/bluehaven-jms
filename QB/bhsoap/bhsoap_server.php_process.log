@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+			<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+			 xmlns:ns1="http://developer.intuit.com/">
+				<SOAP-ENV:Body><ns1:serverVersionResponse><ns1:serverVersionResult>PHP QuickBooks SOAP Server v1.5.4 at /QB/bhsoap/bhsoap_server.php</ns1:serverVersionResult></ns1:serverVersionResponse>
+			</SOAP-ENV:Body>
+			</SOAP-ENV:Envelope><?xml version="1.0" encoding="UTF-8"?>
+			<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+			 xmlns:ns1="http://developer.intuit.com/">
+				<SOAP-ENV:Body><ns1:clientVersionResponse><ns1:clientVersionResult></ns1:clientVersionResult></ns1:clientVersionResponse>
+			</SOAP-ENV:Body>
+			</SOAP-ENV:Envelope><?xml version="1.0" encoding="UTF-8"?>
+			<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+			 xmlns:ns1="http://developer.intuit.com/">
+				<SOAP-ENV:Body><ns1:authenticateResponse><ns1:authenticateResult><ns1:string>d29f2dc3-114d-9f94-655d-2533a0c50374</ns1:string>
+<ns1:string></ns1:string>
+</ns1:authenticateResult></ns1:authenticateResponse>
+			</SOAP-ENV:Body>
+			</SOAP-ENV:Envelope><?xml version="1.0" encoding="UTF-8"?>
+			<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+			 xmlns:ns1="http://developer.intuit.com/">
+				<SOAP-ENV:Body><ns1:connectionErrorResponse><ns1:connectionErrorResult>done</ns1:connectionErrorResult></ns1:connectionErrorResponse>
+			</SOAP-ENV:Body>
+			</SOAP-ENV:Envelope><?xml version="1.0" encoding="UTF-8"?>
+			<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+			 xmlns:ns1="http://developer.intuit.com/">
+				<SOAP-ENV:Body><ns1:serverVersionResponse><ns1:serverVersionResult>PHP QuickBooks SOAP Server v1.5.4 at /QB/bhsoap/bhsoap_server.php</ns1:serverVersionResult></ns1:serverVersionResponse>
+			</SOAP-ENV:Body>
+			</SOAP-ENV:Envelope><?xml version="1.0" encoding="UTF-8"?>
+			<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+			 xmlns:ns1="http://developer.intuit.com/">
+				<SOAP-ENV:Body><ns1:clientVersionResponse><ns1:clientVersionResult></ns1:clientVersionResult></ns1:clientVersionResponse>
+			</SOAP-ENV:Body>
+			</SOAP-ENV:Envelope><?xml version="1.0" encoding="UTF-8"?>
+			<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+			 xmlns:ns1="http://developer.intuit.com/">
+				<SOAP-ENV:Body><ns1:authenticateResponse><ns1:authenticateResult><ns1:string>0540df46-d838-1b94-9939-a68b16060c21</ns1:string>
+<ns1:string></ns1:string>
+</ns1:authenticateResult></ns1:authenticateResponse>
+			</SOAP-ENV:Body>
+			</SOAP-ENV:Envelope><?xml version="1.0" encoding="UTF-8"?>
+			<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+			 xmlns:ns1="http://developer.intuit.com/">
+				<SOAP-ENV:Body><ns1:connectionErrorResponse><ns1:connectionErrorResult>done</ns1:connectionErrorResult></ns1:connectionErrorResponse>
+			</SOAP-ENV:Body>
+			</SOAP-ENV:Envelope>

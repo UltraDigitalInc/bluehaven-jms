@@ -1,0 +1,42 @@
+Array
+(
+    [0] => 819723168033
+    [1] => BHNCC
+    [2] => 82
+)
+
+exec jest..tlh_zipmatrix_SMB 
+	@cani='4088395618',
+	@did='2499',
+	@czip='93450',
+	@tod='0';
+1
+Results!
+Array
+(
+    [0] => 819723168033
+    [1] => BHNCC
+    [2] => 82
+)
+
+exec jest..tlh_zipmatrix_SMB 
+	@cani='4088395618',
+	@did='2499',
+	@czip='93450',
+	@tod='0';
+1
+Results!
+Array
+(
+    [0] => 814087826572
+    [1] => BHNCC
+    [2] => 10
+)
+
+exec jest..tlh_zipmatrix_SMB 
+	@cani='4088395618',
+	@did='6194502499',
+	@czip='93450',
+	@tod='0';
+1
+Results!

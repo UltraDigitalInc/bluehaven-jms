@@ -1,0 +1,8 @@
+html { background-color:#B9D3EE; }
+body { color:#000000; font-family: arial,helvetica,clean,sans-serif; font-size: 0.8em; }
+.noPrint { display: none; }
+.transnb { border-width:0px; border-style:none; background-color: transparent; }
+table.outer { border-width:1px; border-style:solid; border-color:gray; padding:1px; }
+td.gray { background-color:#d3d3d3; padding-left:2px; padding-right:2px; }
+.tiny { font-size: 75%; }
+.outerrnd { border-radius:5px; border-width:1px; border-style:solid; border-color:gray; background-color:#F5F5F5; margin-bottom: 2px; }
